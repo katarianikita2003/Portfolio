@@ -1,111 +1,46 @@
-// Theme Toggle
-const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
-const sunIcon = document.querySelector('.sun-icon');
-const moonIcon = document.querySelector('.moon-icon');
 
-// Check for saved theme preference or default to dark mode
-const currentTheme = localStorage.getItem('theme') || 'dark';
-if (currentTheme === 'dark') {
-    body.classList.add('dark-mode');
-    sunIcon.style.display = 'none';
-    moonIcon.style.display = 'block';
-} else {
-    body.classList.remove('dark-mode');
-    sunIcon.style.display = 'block';
-    moonIcon.style.display = 'none';
-}
-
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-    } else {
-        localStorage.setItem('theme', 'light');
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-    }
+// Loader
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loader').classList.add('hide');
+    }, 1000);
 });
 
-// Mobile Menu Toggle
+// Mobile Menu
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const navMenu = document.getElementById('navMenu');
 
 mobileMenuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
-    
-    // Animate hamburger menu
-    const spans = mobileMenuToggle.querySelectorAll('span');
-    if (navMenu.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translateY(7px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translateY(-7px)';
-    } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-    }
 });
 
-// Close mobile menu on link click
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        const spans = mobileMenuToggle.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-    });
-});
-
-// Smooth scrolling for navigation links
+// Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
+            // Close mobile menu if open
+            navMenu.classList.remove('active');
         }
     });
 });
 
-// Fade in animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-        }
-    });
-}, observerOptions);
-
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-});
-
-// Active nav link on scroll
+// Active Navigation
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
+        if (pageYOffset >= sectionTop - 100) {
             current = section.getAttribute('id');
         }
     });
@@ -118,7 +53,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add project filtering functionality
+// Project Filtering
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 
@@ -148,43 +83,133 @@ filterBtns.forEach(btn => {
     });
 });
 
-// Add smooth reveal animation for timeline items
-const timelineItems = document.querySelectorAll('.timeline-item');
-const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+// Intersection Observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
         if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateX(0)';
-            }, index * 100);
+            entry.target.classList.add('show');
         }
     });
-}, { threshold: 0.1 });
+}, observerOptions);
 
-timelineItems.forEach(item => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateX(-30px)';
-    item.style.transition = 'all 0.6s ease';
-    timelineObserver.observe(item);
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Custom Cursor (desktop only)
+const cursor = document.getElementById('cursor');
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0;
+
+if (window.innerWidth > 768) {
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.classList.add('visible');
+    });
+
+    document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('visible');
+    });
+
+    // Smooth cursor animation
+    function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.1;
+        cursorY += (mouseY - cursorY) * 0.1;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Cursor hover effect
+    const hoverElements = document.querySelectorAll('a, button, .project-card, .skill-item, .contact-card');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+}
+
+// Number counter animation
+function animateNumbers() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.textContent);
+        const increment = target / 50;
+        let current = 0;
+
+        const updateNumber = () => {
+            if (current < target) {
+                current += increment;
+                stat.textContent = Math.floor(current) + '+';
+                requestAnimationFrame(updateNumber);
+            } else {
+                stat.textContent = target + '+';
+            }
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateNumber();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        observer.observe(stat);
+    });
+}
+
+animateNumbers();
+
+// Theme toggle (simplified)
+const themeToggle = document.getElementById('themeToggle');
+themeToggle.addEventListener('click', () => {
+    themeToggle.textContent = themeToggle.textContent === '🌙' ? '☀️' : '🌙';
 });
 
-// Add hover effect for skill items
-const skillItems = document.querySelectorAll('.skill-item');
-skillItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
-        this.style.borderLeft = '3px solid var(--black)';
-    });
-    item.addEventListener('mouseleave', function() {
-        this.style.borderLeft = 'none';
-    });
-});
-
-// Add subtle parallax effect to hero
+// Parallax effect for shapes
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero-content');
-    if (hero && scrolled < window.innerHeight) {
-        hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-        hero.style.opacity = 1 - (scrolled / window.innerHeight * 0.5);
-    }
+    const shapes = document.querySelectorAll('.shape');
+
+    shapes.forEach((shape, index) => {
+        const speed = 0.5 + (index * 0.2);
+        shape.style.transform = `translateY(${scrolled * speed}px)`;
+    });
 });
+
+// Add some particle effects
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.style.position = 'fixed';
+    particle.style.width = '4px';
+    particle.style.height = '4px';
+    particle.style.background = 'rgba(139, 92, 246, 0.4)';
+    particle.style.borderRadius = '50%';
+    particle.style.pointerEvents = 'none';
+    particle.style.left = Math.random() * window.innerWidth + 'px';
+    particle.style.top = window.innerHeight + 'px';
+    document.body.appendChild(particle);
+
+    const duration = Math.random() * 3000 + 2000;
+    particle.animate([
+        { transform: 'translateY(0) scale(1)', opacity: 1 },
+        { transform: `translateY(-${window.innerHeight}px) scale(0)`, opacity: 0 }
+    ], {
+        duration: duration,
+        easing: 'linear'
+    }).onfinish = () => particle.remove();
+}
+
+// Create particles periodically
+setInterval(createParticle, 300);
+
+// Console Easter Egg
+console.log('%c🚀 Welcome to Nikita Saini\'s Portfolio!', 'font-size: 20px; color: #8b5cf6; font-weight: bold;');
+console.log('%c💼 Looking for a blockchain developer? Let\'s connect!', 'font-size: 14px; color: #6366f1;');

@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikita Saini - Portfolio</title>
-    <meta name="description" content="Nikita Saini - Blockchain Developer & Full-Stack Engineer">
+    <title>Nikita Saini - Blockchain Developer & Full-Stack Engineer</title>
+    <meta name="description"
+        content="Nikita Saini - Blockchain Developer & Full-Stack Engineer specializing in DeFi, Smart Contracts, and Web3 Applications">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-mode">
+
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">NIKITA SAINI</div>
-            <div class="nav-right">
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none;">
-                        <path d="M12 17.5C9.5 17.5 7.5 15.5 7.5 13S9.5 8.5 12 8.5 16.5 10.5 16.5 13 14.5 17.5 12 17.5M12 7C8.7 7 6 9.7 6 13S8.7 19 12 19 18 16.3 18 13 15.3 7 12 7M12 2L14.4 6.4L19 7L15.5 10.5L16.2 15L12 12.8L7.8 15L8.5 10.5L5 7L9.6 6.4L12 2M4.5 10.5L1.5 11.5L2.5 14.5L5.5 13.5L4.5 10.5M19.5 10.5L18.5 13.5L21.5 14.5L22.5 11.5L19.5 10.5M22.5 4.5L19.5 5.5L20.5 8.5L23.5 7.5L22.5 4.5M1.5 4.5L0.5 7.5L3.5 8.5L4.5 5.5L1.5 4.5Z"/>
-                    </svg>
-                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: block;">
-                        <path d="M17.75,4.09L15.22,6.03L16.13,9.09L13.5,7.28L10.87,9.09L11.78,6.03L9.25,4.09L12.44,4L13.5,1L14.56,4L17.75,4.09M21.25,11L19.61,12.25L20.2,14.23L18.5,13.06L16.8,14.23L17.39,12.25L15.75,11L17.81,10.95L18.5,9L19.19,10.95L21.25,11M18.97,15.95C19.8,15.87 20.69,17.05 20.16,17.8C19.84,18.25 19.5,18.67 19.08,19.07C15.17,23 8.84,23 4.94,19.07C1.03,15.17 1.03,8.83 4.94,4.93C5.34,4.53 5.76,4.17 6.21,3.85C6.96,3.32 8.14,4.21 8.06,5.04C7.79,7.9 8.75,10.87 10.95,13.06C13.14,15.26 16.1,16.22 18.97,15.95M17.33,17.97C14.5,17.81 11.7,16.64 9.53,14.5C7.36,12.31 6.2,9.5 6.04,6.68C3.23,9.82 3.34,14.64 6.35,17.66C9.37,20.67 14.19,20.78 17.33,17.97Z"/>
-                    </svg>
-                </button>
-            </div>
+            <div class="logo">Nikita Saini</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <!-- <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        🌙
+                    </button>
+                </li> -->
+            </ul>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <span></span>
                 <span></span>
@@ -40,49 +51,63 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content fade-in">
-            <h1>Blockchain Developer<br>& Full-Stack Engineer</h1>
-            <p class="hero-subtitle">Creating innovative solutions at the intersection of Web3 and traditional tech</p>
-            <p class="hero-description">
-                I'm Nikita Saini, an Electrical Engineering student at NIT Kurukshetra with a passion for blockchain technology 
-                and full-stack development. Currently interning at Yushu Excellence Technologies, I specialize in DeFi protocols, 
-                Zero-Knowledge Proofs, and cross-chain applications.
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="hero-content">
+            <!-- <div class="hero-badge">🚀 Available for Blockchain Projects</div> -->
+            <h1 class="glitch">Blockchain Developer<br>& Full-Stack Engineer</h1>
+            <p class="hero-subtitle">
+                Creating innovative solutions at the intersection of Web3 and traditional tech
             </p>
             <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                <a href="#projects" class="btn btn-primary">
+                    View Projects →
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    Get in Touch
+                </a>
             </div>
         </div>
-        <!-- <div class="scroll-indicator"></div> -->
     </section>
 
     <!-- About Section -->
-    <section id="about" class="fade-in">
-        <h2>About Me</h2>
-        <div class="about-grid">
+    <section class="about" id="about">
+        <div class="about-container">
+            <span class="section-badge">About Me</span>
+            <h2 class="section-title">Building the Future of Web3</h2>
             <div class="about-content">
                 <div>
                     <p class="about-text">
-                        I combine technical excellence with creative problem-solving to build scalable blockchain solutions. 
-                        With expertise in Solidity, smart contract development, and modern web technologies, I create applications 
+                        I combine technical excellence with creative problem-solving to build scalable blockchain
+                        solutions.
+                        With expertise in <span class="about-highlight">Solidity</span>,
+                        <span class="about-highlight">smart contract development</span>, and
+                        <span class="about-highlight">modern web technologies</span>, I create applications
                         that push the boundaries of decentralized finance and privacy-preserving technologies.
                     </p>
-                    <p class="about-text" style="margin-top: 2rem;">
-                        As an active open-source contributor with 30+ commits in GirlScript Summer of Code 2024, 
-                        I believe in the power of collaborative development and knowledge sharing. My work spans from 
-                        implementing Zero-Knowledge Proof systems to building automated DeFi yield optimizers.
+                    <p class="about-text">
+                        Recently completed intern at <span class="about-highlight">Yushu Excellence Technologies</span>,
+                        I specialize in DeFi protocols, Zero-Knowledge Proofs, and cross-chain applications.
+                        As an active open-source contributor with <span class="about-highlight">30+ commits</span>
+                        in GirlScript Summer of Code 2024, I believe in the power of collaborative development
+                        and knowledge sharing.
                     </p>
+                    <div class="about-cta">
+                        <a href="#projects" class="btn btn-primary">View Projects →</a>
+                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    </div>
                 </div>
-                <div class="stats">
-                    <div class="stat-item">
+                <div class="stats-grid">
+                    <div class="stat-card">
                         <div class="stat-number">2+</div>
                         <div class="stat-label">Years Experience</div>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-card">
                         <div class="stat-number">8+</div>
                         <div class="stat-label">Projects Completed</div>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-card">
                         <div class="stat-number">30+</div>
                         <div class="stat-label">Open Source Commits</div>
                     </div>
@@ -92,257 +117,263 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="fade-in">
-        <div class="projects-header">
-            <h2>Selected Projects</h2>
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="blockchain">Blockchain</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-            </div>
-        </div>
-        <div class="projects-grid">
-            <div class="project-card" data-category="mobile">
-                <div class="project-image">
-                    <img src="assets/Pramaan.jpg" alt="Pramaan Project" />
-                    <span class="project-number">01</span>
+    <section class="projects" id="projects">
+        <div class="projects-container">
+            <div class="projects-header">
+                <div>
+                    <span class="section-badge">Portfolio</span>
+                    <h2 class="section-title">Selected Projects</h2>
                 </div>
-                <div class="project-content">
-                    <h3 class="project-title">Pramaan - ZKP Attendance System</h3>
-                    <p class="project-description">
-                        Privacy-preserving biometric attendance using Zero-Knowledge Proofs, eliminating storage of sensitive data 
-                        with multi-organization architecture and geofencing capabilities.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React Native</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Circom</span>
-                        <span class="tech-tag">SnarkJS</span>
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="blockchain">Blockchain</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                </div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="mobile">
+                    <div class="project-image"><img src="assets/Pramaan.jpg" alt="Pramaan-Attendance-System"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Pramaan - ZKP Attendance System</h3>
+                        <p class="project-description">
+                            Privacy-preserving biometric attendance using Zero-Knowledge Proofs, eliminating storage
+                            of sensitive data with multi-organization architecture.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Circom</span>
+                            <span class="tech-tag">SnarkJS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/katarianikita2003/Pramaan-Attendance-System"
+                                class="project-link" target="_blank">
+                                View Code →
+                            </a>
+                        </div>
                     </div>
-                    <a href="https://github.com/katarianikita2003/Pramaan-Attendance-System" class="project-link">View Project</a>
                 </div>
-            </div>
 
-            <div class="project-card" data-category="blockchain">
-                <div class="project-image">
-                    <img src="assets/YieldMax.png" alt="YieldMax Project" />
-                    <span class="project-number">02</span>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">YieldMax - Cross-Chain DeFi Optimizer</h3>
-                    <p class="project-description">
-                        Automated yield optimization protocol managing funds across Aave, Compound, Yearn, and Curve 
-                        with AI-powered strategy engine using Chainlink CCIP for cross-chain functionality.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Solidity</span>
-                        <span class="tech-tag">Chainlink</span>
-                        <span class="tech-tag">Next.js</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Hardhat</span>
+                <div class="project-card" data-category="blockchain">
+                    <div class="project-image"><img src="assets/YieldMax.png" alt="YieldMax"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">YieldMax - Cross-Chain DeFi</h3>
+                        <p class="project-description">
+                            Automated yield optimization protocol managing funds across Aave, Compound, Yearn,
+                            and Curve with AI-powered strategy engine.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Solidity</span>
+                            <span class="tech-tag">Chainlink</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://yieldmax.netlify.app/" class="project-link" target="_blank">
+                                Live Demo →
+                            </a>
+                            <a href="https://github.com/amitduabits/yieldmax" class="project-link" target="_blank">
+                                View Code →
+                            </a>
+                        </div>
                     </div>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="https://yieldmax.netlify.app/" class="project-link" target="_blank">Live Demo</a>
-                        <a href="https://github.com/amitduabits/yieldmax" class="project-link" target="_blank">View Code</a>
-                    </div>
                 </div>
-            </div>
 
-            <div class="project-card" data-category="blockchain">
-                <div class="project-image">
-                    <img src="assets/Bot.png" alt="DEX Arbitrage Bot" />
-                    <span class="project-number">03</span>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">DEX Arbitrage Trading Bot</h3>
-                    <p class="project-description">
-                        Automated arbitrage bot detecting price discrepancies across multiple DEXs with Aave flash loans, 
-                        achieving 15%+ monthly returns on testnet with configurable risk parameters.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Solidity</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Ethers.js</span>
-                        <span class="tech-tag">Aave Protocol</span>
+                <div class="project-card" data-category="blockchain">
+                    <div class="project-image"><img src="assets/Bot.png" alt="Trading Bot"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">DEX Arbitrage Bot</h3>
+                        <p class="project-description">
+                            Automated arbitrage bot detecting price discrepancies across DEXs with Aave flash loans,
+                            achieving 15%+ monthly returns on testnet.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Solidity</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Ethers.js</span>
+                            <span class="tech-tag">Aave</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/katarianikita2003/Sepolia-Crypto-Trading-Bot"
+                                class="project-link" target="_blank">
+                                View Code →
+                            </a>
+                        </div>
                     </div>
-                    <a href="https://github.com/katarianikita2003/Sepolia-Crypto-Trading-Bot" class="project-link">View Project</a>
                 </div>
-            </div>
 
-            <div class="project-card" data-category="blockchain">
-                <div class="project-image">
-                    <img src="assets/BZen.jpg" alt="BlockZen DEX" />
-                    <span class="project-number">04</span>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">BlockZen - Decentralized Exchange</h3>
-                    <p class="project-description">
-                        Full-featured DEX with ERC-20 token support, custom BZen token, and React/Redux frontend 
-                        with real-time order book and 95%+ test coverage.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Solidity</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Web3.js</span>
-                        <span class="tech-tag">Truffle</span>
+                <div class="project-card" data-category="blockchain">
+                    <div class="project-image"><img src="assets/BZen.jpg" alt="BlockZen"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">BlockZen DEX</h3>
+                        <p class="project-description">
+                            Full-featured decentralized exchange with ERC-20 token support, custom BZen token,
+                            and real-time order book with 95%+ test coverage.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Solidity</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Web3.js</span>
+                            <span class="tech-tag">Truffle</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/katarianikita2003/Bootcamp/tree/main/pr0/blockchain-developer-bootcamp"
+                                class="project-link" target="_blank">
+                                View Code →
+                            </a>
+                        </div>
                     </div>
-                    <a href="https://github.com/katarianikita2003/Bootcamp/tree/main/pr0/blockchain-developer-bootcamp" class="project-link">View Project</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="fade-in">
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Blockchain</h3>
-                <div class="skill-list">
-                    <div class="skill-item">Solidity & Smart Contracts</div>
-                    <div class="skill-item">DeFi Protocols</div>
-                    <div class="skill-item">Web3.js</div>
-                    <div class="skill-item">Hardhat / Truffle / Ganache</div>
-                    <div class="skill-item">Zero-Knowledge Proofs</div>
+    <section class="skills" id="skills">
+        <div class="skills-container">
+            <span class="section-badge">Expertise</span>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Blockchain</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Solidity & Smart Contracts</div>
+                        <div class="skill-item">DeFi Protocols</div>
+                        <div class="skill-item">Web3.js / Ethers.js</div>
+                        <div class="skill-item">Hardhat / Truffle</div>
+                        <div class="skill-item">Zero-Knowledge Proofs</div>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-category">
-                <h3>Development</h3>
-                <div class="skill-list">
-                    <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">React.js</div>
-                    <div class="skill-item">React Native</div>
-                    <div class="skill-item">Node.js / Express.js</div>
-                    <div class="skill-item">MongoDB</div>
-                    <div class="skill-item">Java</div>
+                <div class="skill-category">
+                    <h3>Development</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">React.js </div>
+                        <div class="skill-item">React Native</div>
+                        <div class="skill-item">Node.js / Express.js</div>
+                        <div class="skill-item">MongoDB </div>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-category">
-                <h3>Tools & Technologies</h3>
-                <div class="skill-list">
-                    <div class="skill-item">Git / GitHub</div>
-                    <div class="skill-item">Docker</div>
-                    <div class="skill-item">MetaMask / Remix IDE</div>
-                    <div class="skill-item">VS Code / Postman</div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Git / GitHub</div>
+                        <div class="skill-item">Docker</div>
+                        <div class="skill-item">MetaMask / Remix IDE</div>
+                        <div class="skill-item">VS Code </div>
+                        <div class="skill-item">Postman</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="fade-in">
-        <h2>Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">May 2025 - July 2025</div>
-                <div class="timeline-content">
-                    <h3>Blockchain Developer Intern</h3>
-                    <p class="timeline-company">Yushu Excellence Technologies Pvt. Ltd</p>
-                    <p>Integrated Chainlink oracles (Price Feeds, CCIP, Automation) for cross-chain DeFi yield optimization. 
-                    Collaborated remotely with Dr. Amit Dua through regular mentorship sessions.</p>
+    <section class="experience" id="experience">
+        <div class="experience-container">
+            <span class="section-badge">Journey</span>
+            <h2 class="section-title">Experience & Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 2025 - July 2025</div>
+                        <h3 class="timeline-title">Blockchain Developer Intern</h3>
+                        <div class="timeline-company">Yushu Excellence Technologies</div>
+                        <p class="timeline-description">
+                            Integrated Chainlink oracles for cross-chain DeFi yield optimization.
+                            Collaborated remotely with Dr. Amit Dua through regular mentorship sessions.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">2025</div>
-                <div class="timeline-content">
-                    <h3>Hackathon Participant</h3>
-                    <p class="timeline-company">Chromium Chainlink CCIP Hackathon</p>
-                    <p>Built innovative cross-chain communication protocols using Chainlink CCIP for seamless DeFi interactions.</p>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h3 class="timeline-title">Hackathon Participant</h3>
+                        <div class="timeline-company">Chromium Chainlink CCIP</div>
+                        <p class="timeline-description">
+                            Built innovative cross-chain communication protocols using Chainlink CCIP
+                            for seamless DeFi interactions.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">2024</div>
-                <div class="timeline-content">
-                    <h3>Open Source Contributor</h3>
-                    <p class="timeline-company">GirlScript Summer of Code</p>
-                    <p>Active contributor with 3+ commits across various open source projects, focusing on web development and blockchain applications.</p>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024</div>
+                        <h3 class="timeline-title">Open Source Contributor</h3>
+                        <div class="timeline-company">GirlScript Summer of Code</div>
+                        <p class="timeline-description">
+                            Active contributor with 30+ commits across various open source projects,
+                            focusing on web development and blockchain applications.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">Nov 2022 - Present</div>
-                <div class="timeline-content">
-                    <h3>B.Tech Electrical Engineering</h3>
-                    <p class="timeline-company">National Institute of Technology, Kurukshetra</p>
-                    <p>CGPA: 7.42/10.0 - Combining engineering excellence with a passion for blockchain and software development.</p>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Nov 2022 - Present</div>
+                        <h3 class="timeline-title">B.Tech Electrical Engineering</h3>
+                        <div class="timeline-company">NIT Kurukshetra</div>
+                        <p class="timeline-description">
+                            CGPA: 7.42/10.0 - Combining engineering excellence with a passion for
+                            blockchain and software development.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="fade-in">
-        <h2>Get In Touch</h2>
-        <div class="contact-content">
-            <p style="font-size: 1.25rem; color: var(--gray-700); margin-bottom: 3rem;">
-                I'm always interested in hearing about new projects and opportunities. 
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <span class="section-badge">Let's Connect</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-text">
+                I'm always interested in hearing about new projects and opportunities.
                 Whether you have a question or just want to say hi, feel free to reach out!
             </p>
             <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Email</h3>
-                    <a href="mailto:nikitasaini0106@gmail.com">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
-                        </svg>
-                        nikitasaini0106@gmail.com
-                    </a>
-                </div>
-                <div class="contact-info">
-                    <h3>Phone</h3>
-                    <a href="tel:+918708633136">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
-                        </svg>
-                        +91 8708633136
-                    </a>
-                </div>
-                <div class="contact-info">
-                    <h3>LinkedIn</h3>
-                    <a href="https://linkedin.com/in/nikitasaini0106" target="_blank">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
-                        </svg>
-                        linkedin.com/in/nikitasaini0106
-                    </a>
-                </div>
-                <div class="contact-info">
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/katarianikita2003" target="_blank">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
-                        </svg>
-                        github.com/katarianikita2003
-                    </a>
-                </div>
-                <div class="contact-info">
-                    <h3>Twitter / X</h3>
-                    <a href="https://x.com/SainiNikita01?t=fGOddeZFOrWD6UqEm0u-fw&s=09" target="_blank">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                        @SainiNikita01
-                    </a>
-                </div>
-                <div class="contact-info">
-                    <h3>Telegram</h3>
-                    <a href="https://t.me/Saini_Nikita" target="_blank">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.3L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.61,18.23C10.38,18.46 10.19,18.65 9.78,18.65Z"/>
-                        </svg>
-                        @Saini_Nikita
-                    </a>
-                </div>
+                <a href="mailto:nikitasaini0106@gmail.com" class="contact-card">
+                    <span class="contact-icon">✉️</span>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">nikitasaini0106@gmail.com</div>
+                </a>
+                <a href="tel:+918708633136" class="contact-card">
+                    <span class="contact-icon">📱</span>
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">+91 8708633136</div>
+                </a>
+                <a href="https://linkedin.com/in/nikitasaini0106" target="_blank" class="contact-card">
+                    <span class="contact-icon">💼</span>
+                    <div class="contact-label">LinkedIn</div>
+                    <div class="contact-value">nikitasaini0106</div>
+                </a>
+                <a href="https://github.com/katarianikita2003" target="_blank" class="contact-card">
+                    <span class="contact-icon">🐙</span>
+                    <div class="contact-label">GitHub</div>
+                    <div class="contact-value">katarianikita2003</div>
+                </a>
+                <a href="https://x.com/SainiNikita01" target="_blank" class="contact-card">
+                    <span class="contact-icon">🐦</span>
+                    <div class="contact-label">Twitter/X</div>
+                    <div class="contact-value">@SainiNikita01</div>
+                </a>
+                <a href="https://t.me/Saini_Nikita" target="_blank" class="contact-card">
+                    <span class="contact-icon">💬</span>
+                    <div class="contact-label">Telegram</div>
+                    <div class="contact-value">@Saini_Nikita</div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Nikita Saini. All rights reserved.</p>
+        <p>&copy; 2024 Nikita Saini. All rights reserved. Built with 💜</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
