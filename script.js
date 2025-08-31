@@ -1,4 +1,3 @@
-
 // Loader
 window.addEventListener('load', () => {
     setTimeout(() => {
